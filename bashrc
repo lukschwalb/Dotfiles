@@ -1,5 +1,4 @@
 # .bashrc
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -L ~/.bash_aliases ]; then
+    source ~/.bash_aliases
 fi
