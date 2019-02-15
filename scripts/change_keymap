@@ -1,0 +1,4 @@
+#!/bin/bash
+
+keyset=$(echo -e "$ROFI_KEYMAPS" | rofi -dmenu)
+setxkbmap $keyset
