@@ -35,7 +35,7 @@ font pango:Monospace Regular 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st -f "Monospace-12"
+bindsym $mod+Return exec st -f "Monospace-10"
 
 # kill focused window
 bindsym $mod+Shift+q kill
