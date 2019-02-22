@@ -13,7 +13,7 @@ set $term --no-startup-id st -f "Monospace-8"
 set $mod Mod4
 
 # Add gaps between windows
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 gaps inner 5 
 gaps outer 2
 
