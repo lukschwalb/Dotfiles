@@ -1,11 +1,15 @@
 ! "New style theme file" Set from: Default
-rofi.theme:                          arthur
+rofi.theme:                            arthur-custom 
+
 ! "Enabled modi" Set from: Default
 ! rofi.modi:                           window,run,ssh
+
 ! "Window width" Set from: Default
 rofi.width:                          30
+
 ! "Number of lines" Set from: Default
 rofi.lines:                          10
+
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
@@ -26,6 +30,7 @@ rofi.lines:                          10
 ! rofi.show-icons:                     false
 ! "Terminal to use" Set from: Default
 ! rofi.terminal:                       rofi-sensible-terminal
+rofi.terminal:                       st
 ! "Ssh client to use" Set from: Default
 ! rofi.ssh-client:                     ssh
 ! "Ssh command to execute" Set from: Default
