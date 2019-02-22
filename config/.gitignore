@@ -1,7 +1,11 @@
-*
-*/.netrwhist
-!i3
-!nvim
-!fish
-!htop
+/*
+/*/.netrwhist
+
+!.gitignore
+!i3/
+!nvim/
+!fish/
+!fontconfig/
+!htop/
+!rofi/
 !networkmanager-dmenu
