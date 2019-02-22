@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#https://unix.stackexchange.com/questions/12072/how-do-i-get-current-keyboard-layout
+current_keymap=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
+
+case $current_keymap in
+    de)
+        setxkbmap "us"
+        ;;
+    us)
+        setxkbmap "de"
+        ;;
+    *)
+        setxkbmap "us"
+        ;;
+esac
+

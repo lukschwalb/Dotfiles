@@ -47,7 +47,7 @@ bindsym $mod+s exec rofi -show window
 bindsym $mod+g exec $term -e ranger
 bindsym $mod+b exec $term -e htop
 
-bindsym $mod+Shift+p exec --no-startup-id change_keymap
+bindsym $mod+Shift+p exec --no-startup-id toggle_keymap
 bindsym $mod+Shift+w exec networkmanager_dmenu
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
