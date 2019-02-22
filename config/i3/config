@@ -186,8 +186,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym $mod+bracketright exec amixer sset Master 10%+
 bindsym $mod+bracketleft exec amixer sset Master 10%-
 
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command i3status
+#}
