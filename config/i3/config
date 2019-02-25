@@ -178,11 +178,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym --release $mod+Shift+slash exec --no-startup-id scrot -s -e 'mv $f ~/screenshots/'
+bindsym $mod+Shift+period exec --no-startup-id scrot -e 'mv $f ~/screenshots/'
 
+# Control brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 
-
+# Volume up and down
 bindsym $mod+bracketright exec amixer sset Master 10%+
 bindsym $mod+bracketleft exec amixer sset Master 10%-
 
