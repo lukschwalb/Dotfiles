@@ -15,4 +15,9 @@ export TERMINAL=st
 
 
 export ROFI_KEYMAPS="us\nde"
+
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
+
 exec fish 
