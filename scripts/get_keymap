@@ -6,7 +6,7 @@ current_keymap=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
 output=""
 case $current_keymap in
     de)
-        output="🇩"
+        output="🇩🇪"
         ;;
     us)
         output="🇺🇸"
