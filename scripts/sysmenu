@@ -1,9 +1,11 @@
 #!/bin/bash
 
-MENU="$(echo "Lock|Logout|Reboot|Shutdown|" | rofi -dmenu -sep "|")"
+MENU="$(echo "Lock|Sleep|Logout|Reboot|Shutdown|Hibernate|" | rofi -dmenu -sep "|")"
 case "$MENU" in
     *Lock) i3lock-fancy ;;
+    *Sleep) systemctl suspend ;;
     *Logout) i3-msg exit;;
     *Reboot) systemctl reboot ;;
-    *Shutdown) systemctl -i poweroff
+    *Shutdown) systemctl -i poweroff ;;
+    *Hibernate) systemctl hibernate ;;
 esac
