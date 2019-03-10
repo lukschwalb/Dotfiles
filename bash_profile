@@ -6,6 +6,7 @@ fi
 
 [[ $DG_VTNR -le 2 ]] && tbsm 
 
+
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
