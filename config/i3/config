@@ -88,6 +88,16 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+
+# %%hotkey: Move window to scratchpad%%
+bindsym $mod+Shift+minus move scratchpad
+
+# %%hotkey: Show first window in scratchpad%%
+bindsym $mod+minus scratchpad show
+
+# %%hotkey: Show whatsie in scratchpad%%
+bindsym $mod+c [class="Whatsie"] scratchpad show
+
 # %%hotkey: Toggle split direction%%
 bindsym $mod+m split toggle
 
@@ -105,7 +115,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -178,6 +187,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+assign [class="Firefox"] 2
+for_window [class="Whatsie"] move window to scratchpad
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id clipster -d
