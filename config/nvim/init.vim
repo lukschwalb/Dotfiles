@@ -1,7 +1,6 @@
-set colorcolumn=80
-
 syntax on
 set showmode
+
 
 " Preserve transparent background
 hi Normal guibg=NONE ctermbg=NONE
@@ -26,14 +25,15 @@ set wrap
 set linebreak
 
 " Tab Character Spacing
+filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
-map <leader>l :set list!<CR>
 
+map <C-R> :FZF<CR>
 
 " Map split windows movement
 nnoremap <C-J> <C-W><C-J>
@@ -62,17 +62,24 @@ vnoremap P "+P
 nnoremap <C-p> p
 vnoremap <C-p> p
 
-" Status Line
-set laststatus=2                               " always show status line
-set statusline=%<%f\                           " Filename
-set statusline+=%w%h%m%r                       " Options
-set statusline+=\ [%{&ff}/%Y]                  " filetype
-set statusline+=\ [%{split(getcwd(),'/')[-1]}] " current dir
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
+
+let g:lightline = {
+        \ 'colorscheme': 'seoul256',
+        \ 'active': {
+        \   'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified', 'duck']],
+        \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+        \ },
+        \ 'component': {
+        \   'duck': '🦆'
+        \ },
+    \ }
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
