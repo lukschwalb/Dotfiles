@@ -42,11 +42,25 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Map keys to resize splits
-nnoremap <silent> + :exe "resize " . (winheight(0) * 4/3)<CR>
-nnoremap <silent> - :exe "resize " . (winheight(0) * 1/3)<CR>
+nnoremap <silent> + :exe "resize " . (winheight(0) * 5/4)<CR>
+nnoremap <silent> - :exe "resize " . (winheight(0) * 3/4)<CR>
 
-nnoremap <silent> > :exe "vertical resize " (winwidth(0) * 4/3)<CR>
-nnoremap <silent> < :exe "vertical resize " (winwidth(0) * 1/3)<CR>
+nnoremap <silent> > :exe "vertical resize " (winwidth(0) * 5/4)<CR>
+nnoremap <silent> < :exe "vertical resize " (winwidth(0) * 3/4)<CR>
+
+" " Copy to clipboard
+vnoremap  y  "+y
+nnoremap  Y  "+yg_
+nnoremap  y  "+y
+nnoremap  yy  "+yy
+
+" " Paste from clipboard
+nnoremap p "+p
+nnoremap P "+P
+vnoremap p "+p
+vnoremap P "+P
+nnoremap <C-p> p
+vnoremap <C-p> p
 
 " Status Line
 set laststatus=2                               " always show status line
@@ -55,4 +69,10 @@ set statusline+=%w%h%m%r                       " Options
 set statusline+=\ [%{&ff}/%Y]                  " filetype
 set statusline+=\ [%{split(getcwd(),'/')[-1]}] " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
 

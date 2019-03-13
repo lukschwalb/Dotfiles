@@ -1,6 +1,7 @@
 set $term --no-startup-id st -t "Simple Terminal" -f "Source Code Pro:style=Semibold:size=8"
 
 set $mod Mod4
+set $screenshot_path echo "$HOME/Cloud/files/screenshots"
 
 # Add gaps between windows
 for_window [class="^.*"] border pixel 4
@@ -46,10 +47,10 @@ bindsym $mod+Shift+n exec networkmanager_dmenu
 bindsym $mod+i exec hotkeys i3
 
 # %%hotkey: Take a screenshot of a region%%
-bindsym $mod+Shift+slash --release exec --no-startup-id scrot -s -e 'mv $f ~/screenshots/'
+bindsym $mod+Shift+slash --release exec --no-startup-id scrot -s -e 'mv $f ~/Cloud/files/screenshots/'
 
 # %%hotkey: Take a screenshot of the whole screen%%
-bindsym $mod+Shift+period exec --no-startup-id scrot -e 'mv $f ~/screenshots/'
+bindsym $mod+Shift+period exec --no-startup-id scrot -e 'mv $f ~/Cloud/files/screenshots/'
 
 # %%hotkey: Increase master volume%%
 bindsym $mod+bracketright exec amixer sset Master 10%+
@@ -195,5 +196,6 @@ exec_always --no-startup-id clipster -d
 exec_always --no-startup-id feh --bg-scale --randomize --no-fehbg ~/.wallpapers/*
 exec_always --no-startup-id xcompmgr
 exec_always --no-startup-id devilspie -a
+#exec_always --no-startup-id nextcloud
 
 

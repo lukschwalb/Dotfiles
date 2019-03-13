@@ -5,10 +5,12 @@ if [ -e ~/.repos ]; then
 fi
 
 export PATH=$PATH:$REPOSITORY_DIRECTORY/Dotfiles/scripts
+export SCREENSHOT_PATH=$HOME/Cloud/files/screenshots/
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=st
 export SSH_AUTH_SOCK
+
 
 export ROFI_KEYMAPS="us\nde"
 
