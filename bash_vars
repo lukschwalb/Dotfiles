@@ -8,6 +8,7 @@ export PATH=$PATH:$REPOSITORY_DIRECTORY/Dotfiles/scripts
 export EDITOR=nvim
 export VISUAL=nvim
 export VIMRC=$REPOSITORY_DIRECTORY/Dotfiles/vimrc
+export I3=$REPOSITORY_DIRECTORY/Dotfiles/config/i3/config
 export TERMINAL=st
 export SSH_AUTH_SOCK
 
