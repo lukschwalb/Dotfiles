@@ -1,13 +1,12 @@
 # i3config
-set $term --no-startup-id st -t "Simple Terminal" -f "Source Code Pro:style=Semibold:size=9"
-
+set $term --no-startup-id $TERMINAL 
 set $mod Mod4
 set $screenshot_path echo "$HOME/Cloud/files/screenshots"
 
 # Add gaps between windows
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 6
 new_window 1pixel
-gaps inner 5 
+gaps inner 3 
 gaps outer 1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -24,22 +23,25 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # %%hotkey: Shows available windows%%
-bindsym $mod+s exec rofi -show window
+bindsym $mod+w exec rofi -show window
+
+# %%hotkey: Open power options%%
+bindsym $mod+p exec sysmenu
 
 # %%hotkey: Launch ranger%%
-bindsym $mod+g exec $term -e ranger
+bindsym $mod+f exec $term -e ranger
 
 # %%hotkey: Launch htop%%
-bindsym $mod+b exec $term -e htop
+bindsym $mod+o exec $term -e htop
 
 # %%hotkey: Launch clipboard selection%%
-bindsym $mod+p exec roficlip
+bindsym $mod+Shift+c exec roficlip
 
 # %%hotkey: Launch emoji selection%%
-bindsym $mod+t exec rofimoji
+bindsym $mod+e exec rofimoji
 
 # %%hotkey: Toggle the keymap%%
-bindsym $mod+Shift+p exec --no-startup-id toggle_keymap
+bindsym $mod+b exec --no-startup-id toggle_keymap
 
 # %%hotkey: Launch networkmanager%%
 bindsym $mod+Shift+n exec networkmanager_dmenu
@@ -53,15 +55,15 @@ bindsym $mod+Shift+slash --release exec --no-startup-id scrot -s -e 'mv $f ~/Clo
 # %%hotkey: Take a screenshot of the whole screen%%
 bindsym $mod+Shift+period exec --no-startup-id scrot -e 'mv $f ~/Cloud/files/screenshots/'
 
-# %%hotkey: Increase master volume%%
-bindsym $mod+bracketright exec amixer sset Master 10%+
 
-# %%hotkey: Decrease master volume%%
-bindsym $mod+bracketleft exec amixer sset Master 10%-
-
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 10%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 10%+
 
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+
+bindsym XF86ScreenSaver exec --no-startup-id exec i3lock-fancy
 
 
 # change focus
@@ -107,10 +109,10 @@ bindsym $mod+m split toggle
 bindsym $mod+Shift+f fullscreen toggle
 
 # %%hotkey: Change layout to tabbed%%
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 
 # %%hotkey: Change layout to normal%%
-bindsym $mod+Shift+w layout toggle split
+bindsym $mod+Shift+T layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -156,7 +158,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Ctrl+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -170,10 +172,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 15 px or 15 ppt
+        bindsym k resize grow height 15 px or 15 ppt
+        bindsym j resize shrink height 15 px or 15 ppt
+        bindsym l resize grow width 15 px or 15 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -190,7 +192,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 assign [class="Firefox"] 2
-for_window [class="Whatsie"] move window to scratchpad
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id clipster -d
@@ -198,6 +199,7 @@ exec_always --no-startup-id feh --bg-scale --randomize --no-fehbg ~/.wallpapers/
 exec_always --no-startup-id xcompmgr
 exec_always --no-startup-id devilspie -a
 exec --no-startup-id dockd --daemon
-#exec_always --no-startup-id nextcloud
+exec setxkbmap -option caps:swapescape
+exec --no-startup-id nextcloud
 
 

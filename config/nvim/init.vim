@@ -63,6 +63,23 @@ nnoremap <C-p> p
 vnoremap <C-p> p
 
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'godlygeek/tabular'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
+
+call plug#end()
+    
 let g:lightline = {
         \ 'colorscheme': 'seoul256',
         \ 'active': {
@@ -74,12 +91,21 @@ let g:lightline = {
         \ },
     \ }
 
-call plug#begin('~/.vim/plugged')
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#auto_complete_delay = 500
+" call deoplete#custom#option('auto_complete', v:false)
 
-Plug 'Valloric/YouCompleteMe'
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'godlygeek/tabular'
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+let g:LanguageClient_serverCommands = {
+    \ 'c': ['clangd'],
+    \ 'vhdl': ['vhdl-tool', 'lsp'],
+    \ 'sh': ['bash-language-server', 'start']
+    \ }
 
-call plug#end()
+
+
+autocmd FileType vhdl setlocal omnifunc=lsp#complete
+
 
