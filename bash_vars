@@ -10,7 +10,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 export VIMRC=$REPOSITORY_DIRECTORY/Dotfiles/vimrc
 export I3=$REPOSITORY_DIRECTORY/Dotfiles/config/i3/config
-export TERMINAL='st -t "Simple Terminal" -f "Source Code Pro:style=Semibold:size=9"'
+export TERMINAL='st -t "Simple Terminal" -f "Source Code Pro:size=9"'
+export TERMINAL=st
 export SSH_AUTH_SOCK
 
 

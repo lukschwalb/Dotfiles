@@ -4,4 +4,7 @@ CONFIG_PATH=$REPOSITORY_DIRECTORY/cryptostorm_client_configuration_files/ecc
 VPNS=$( find $CONFIG_PATH/*.ovpn -printf "%f|")
 VPN=$(echo "$VPNS" | rofi -dmenu -sep "|")
 
-eval "$TERMINAL -e openvpn $CONFIG_PATH/$VPN"
+if [ ! -z $VPN ];
+then
+    eval "$TERMINAL -e openvpn $CONFIG_PATH/$VPN"
+fi
