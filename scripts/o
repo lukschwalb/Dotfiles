@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#########################################################
+#Script Name	: o (stands for open)
+#Description	: Executes the command you enter and 
+#                 detaches it from the current shell
+#Args           : No limit, just the command e.g. : o echo test
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
+sum=""
+for arg in "$@"
+do
+    sum="${sum} ${arg}"
+done
+eval "( $sum & )"

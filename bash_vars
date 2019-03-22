@@ -5,15 +5,11 @@ if [ -e ~/.repos ]; then
 fi
 
 export PATH=$PATH:$REPOSITORY_DIRECTORY/Dotfiles/scripts
-export PATH=$PATH:/opt/mose/modeltech/linux_x86_64
-export EDITOR=nvim
-export VISUAL=nvim
-export VIMRC=$REPOSITORY_DIRECTORY/Dotfiles/vimrc
-export I3=$REPOSITORY_DIRECTORY/Dotfiles/config/i3/config
-export TERMINAL='st -t "Simple Terminal" -f "Source Code Pro:size=9"'
-export TERMINAL=st
+# lower case for convenience
+export vimrc=$REPOSITORY_DIRECTORY/Dotfiles/vimrc
+export i3=$REPOSITORY_DIRECTORY/Dotfiles/config/i3/config
+export TERMINAL='st'
 export SSH_AUTH_SOCK
 
 
 export ROFI_KEYMAPS="us\nde"
-

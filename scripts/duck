@@ -1,0 +1,23 @@
+#!/bin/bash
+
+SPACECOUNT=100
+SLEEPTIME=0.01
+SPACES=""
+
+while [ true ];
+do
+    for i in $( seq 0 $SPACECOUNT)
+    do
+        SPACES="$SPACES "
+        echo "$SPACES🦆"
+        sleep $SLEEPTIME
+    done
+    
+    for i in $( seq 0 $SPACECOUNT)
+    do
+        SPACES=${SPACES%?}
+        echo "$SPACES🦆"
+        sleep $SLEEPTIME
+    done
+done
+
