@@ -1,9 +1,5 @@
 # .bash_vars
 
-if [ -e ~/.repos ]; then
-    source ~/.repos
-fi
-
 export PATH=$PATH:$REPOSITORY_DIRECTORY/Dotfiles/scripts
 # lower case for convenience
 export vimrc=$REPOSITORY_DIRECTORY/Dotfiles/vimrc
@@ -12,4 +8,4 @@ export TERMINAL='st'
 export SSH_AUTH_SOCK
 
 
-export ROFI_KEYMAPS="us\nde"
+export ROFI_KEYMAPS='us\\nde'

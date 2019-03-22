@@ -1,8 +1,14 @@
 #!/bin/sh
-#
-# https://github.com/seamus-45/roficlip
-#
-#
+
+#########################################################
+#Script Name	: roficlip
+#Description	: Opens a rofi-dmenu of recent clipboard
+#                 entries and loads the selection into 
+#                 the clipboard.
+#Args           : None
+#Author       	: seamus-45
+#Github         : https://github.com/seamus-45/roficlip
+#########################################################
 
 # Verify clipster is running, fail otherwise
 clipster -o > /dev/null 2>&1

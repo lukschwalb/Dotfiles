@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#########################################################
+#Script Name	: get_keymap
+#Description	: Checks the currently loaded keymap and
+#                 prints it with emojis.
+#                 Made for a polybar module.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
 #https://unix.stackexchange.com/questions/12072/how-do-i-get-current-keyboard-layout
 current_keymap=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
 

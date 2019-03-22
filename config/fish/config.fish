@@ -1,1 +1,1 @@
-bass source ~/.bash_vars
+bass source "$REPOSITORY_DIRECTORY/Dotfiles/bash_vars"

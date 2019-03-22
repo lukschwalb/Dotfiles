@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+#########################################################
+#Script Name	: hotkeys
+#Description	: Opens a rofi-dmenu list of hotkeys and
+#                 their function automatically loaded from
+#                 the i3 config file.
+#Args           : None
+#Author       	: Mariusz 'Maledorak' Korzekwa 
+#Email         	: maledorak@gmail.com
+#Github         : https://gist.github.com/maledorak/488c1bd0a6cca333c32c5289b841b9ef
+#########################################################
+
 import os
 import sys
 from re import compile

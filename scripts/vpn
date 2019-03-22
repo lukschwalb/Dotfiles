@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#########################################################
+#Script Name	: vpn
+#Description	: Opens a rofi-dmenu list of available 
+#                 openvpn configurations.
+#                 Executes the configuration after selection.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
 CONFIG_PATH=$REPOSITORY_DIRECTORY/cryptostorm_client_configuration_files/ecc
 VPNS=$( find $CONFIG_PATH/*.ovpn -printf "%f|")
 VPN=$(echo "$VPNS" | rofi -dmenu -sep "|")

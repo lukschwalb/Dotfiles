@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#########################################################
+#Script Name	: toggle_keymap
+#Description	: Toggles the loaded keymap between de and us.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
 #https://unix.stackexchange.com/questions/12072/how-do-i-get-current-keyboard-layout
 current_keymap=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')
 

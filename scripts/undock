@@ -1,4 +1,13 @@
 #!/bin/sh
+
+#########################################################
+#Script Name	: undock
+#Description	: Loads the monitor settings when getting
+#                 getting undocked.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
 xrandr --output LVDS1 --off
 xrandr --output HDMI3 --off
 xrandr --output VGA1 --off

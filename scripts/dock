@@ -1,4 +1,14 @@
 #!/bin/sh
+
+#########################################################
+#Script Name	: dock
+#Description	: Loads the monitor settings when getting
+#                 docked.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
 xrandr --output LVDS1 --off
 xrandr --output HDMI3 --off
 xrandr --output VGA1 --off

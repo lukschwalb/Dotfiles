@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#########################################################
+#Script Name	: sysmenu
+#Description	: Displays power options in a rofi-dmenu.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
 MENU=$( echo -e "Lock\nSleep\nLogout\nReboot\nShutdown\nHibernate" | rofi -dmenu )
 case "$MENU" in
     *Lock) i3lock-fancy ;;

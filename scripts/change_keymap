@@ -1,4 +1,15 @@
 #!/bin/bash
 
+#########################################################
+#Script Name	: change_keymap
+#Description	: Opens a rofi-dmenu selection for various
+#                 different keymaps based on the env Variable
+#                 $ROFI_KEYMAPS. 
+#                 Enables the keymap after seleciton
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
 keyset=$( echo -e "$ROFI_KEYMAPS" | rofi -dmenu )
 setxkbmap $keyset

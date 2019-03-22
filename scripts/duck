@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#########################################################
+#Script Name	: duck
+#Description	: Prints a duck walking up and down.
+#                 Made for a polybar module.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
 SPACECOUNT=100
 SLEEPTIME=0.01
 SPACES=""
