@@ -195,13 +195,14 @@ bindsym $mod+r mode "resize"
 assign [class="Firefox"] 2
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale --randomize --no-fehbg ~/.wallpapers/*
+exec_always setxkbmap -option caps:swapescape
 
-exec setxkbmap -option caps:swapescape
+exec amixer sset Master 0%
 exec --no-startup-id dockd --daemon
 exec --no-startup-id xcompmgr
 exec --no-startup-id devilspie -a
 exec --no-startup-id nextcloud
 exec --no-startup-id clipster -d
-exec --no-startup-id feh --bg-scale --randomize --no-fehbg ~/.wallpapers/*
 
 

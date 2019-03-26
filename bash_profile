@@ -5,5 +5,5 @@ if [ -e ~/.bash_vars ]; then
 fi
 
 systemctl --user import-environment DISPLAY
-[[ $DG_VTNR -le 2 ]] && tbsm
+#  [[ $DG_VTNR -le 2 ]] && tbsm
 

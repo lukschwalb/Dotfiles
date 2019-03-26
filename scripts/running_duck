@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#########################################################
+#Script Name	: running_duck
+#Description	: Prints a duck walking up and down.
+#                 Made for a polybar module.
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
+trap "exit 0" SIGTERM SIGINT
+SPACECOUNT=80
+SLEEPTIME=0.02
+SPACES="   "
+
+pid=$( pgrep -if --oldest "/scripts/running_duck" )
+if [ $pid != $$ ]; 
+then
+    state=$( ps -o s= -p $pid )
+    if [ $state = "T" ];
+    then
+        kill -CONT $pid
+    else
+        kill -TSTP $pid
+    fi
+    exit 0
+else
+    kill -TSTP $$
+    while [ true ];
+    do
+        for i in $( seq 0 $SPACECOUNT)
+        do
+            SPACES="$SPACES "
+            echo "$SPACES"
+            sleep $SLEEPTIME
+        done
+        
+        for i in $( seq 0 $SPACECOUNT)
+        do
+            SPACES=${SPACES%?}
+            echo "$SPACES"
+            sleep $SLEEPTIME
+        done
+    done
+fi
+

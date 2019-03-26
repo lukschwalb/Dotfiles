@@ -7,10 +7,10 @@
 #Author       	: Luk Schwalb
 #Email         	: schwalb@luk.im
 #########################################################
-MENU=$( echo -e "Lock\nSleep\nLogout\nReboot\nShutdown\nHibernate" | rofi -dmenu )
+MENU=$( echo -e "Sleep\nLock\nLogout\nReboot\nShutdown\nHibernate" | rofi -dmenu )
 case "$MENU" in
     *Lock) i3lock-fancy ;;
-    *Sleep) i3lock-fancy && systemctl suspend ;;
+    *Sleep) i3lock-fancy & systemctl suspend ;;
     *Logout) i3-msg exit;;
     *Reboot) systemctl reboot ;;
     *Shutdown) systemctl -i poweroff ;;
