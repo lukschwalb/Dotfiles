@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#########################################################
+#Script Name	: reload_dunst
+#Description	: Restarts dunst
+#Args           : None
+#Author       	: Luk Schwalb
+#Email         	: schwalb@luk.im
+#########################################################
+
+pkill dunst
+dunst -config ~/.config/dunst/dunstrc &
+

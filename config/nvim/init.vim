@@ -2,8 +2,10 @@ syntax on
 set showmode
 
 
-" Preserve transparent background
-hi Normal guibg=NONE ctermbg=NONE
+highlight LineNr ctermfg=grey ctermbg=234
+
+"hi Preserve transparent background
+"hi Normal guibg=NONE ctermbg=NONE
 
 set relativenumber
 set nu rnu
@@ -62,6 +64,11 @@ vnoremap P "+P
 nnoremap <C-p> p
 vnoremap <C-p> p
 
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
 
 call plug#begin('~/.vim/plugged')
 
@@ -69,28 +76,28 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+   \ 'branch': 'next',
+   \ 'do': 'bash install.sh',
+   \ }
 Plug 'kshenoy/vim-signature'
+Plug 'airblade/vim-gitgutter'
+
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
 
 call plug#end()
-    
+   
 let g:lightline = {
-        \ 'colorscheme': 'seoul256',
-        \ 'active': {
-        \   'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified', 'duck']],
-        \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
-        \ },
-        \ 'component': {
-        \   'duck': '🦆'
-        \ },
-    \ }
+       \ 'colorscheme': 'seoul256',
+       \ 'active': {
+           \ },
+       \ 'component': {
+       \   'duck': '🦆'
+       \ },
+   \ }
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
@@ -100,13 +107,15 @@ let g:deoplete#auto_complete_delay = 500
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['clangd'],
-    \ 'vhdl': ['vhdl-tool', 'lsp'],
-    \ 'sh': ['bash-language-server', 'start']
-    \ }
+   \ 'c': ['clangd'],
+   \ 'cpp': ['clangd'],
+   \ 'vhdl': ['vhdl-tool', 'lsp'],
+   \ 'sh': ['bash-language-server', 'start']
+   \ }
 
 
 
 autocmd FileType vhdl setlocal omnifunc=lsp#complete
+
 
 

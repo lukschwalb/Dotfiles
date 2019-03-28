@@ -4,7 +4,7 @@ set $mod Mod4
 set $screenshot_path echo "$HOME/Cloud/files/screenshots"
 
 # Add gaps between windows
-for_window [class="^.*"] border pixel 6
+for_window [class="^.*"] border pixel 3
 new_window 1pixel
 gaps inner 3 
 gaps outer 1

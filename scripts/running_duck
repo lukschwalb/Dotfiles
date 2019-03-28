@@ -14,8 +14,8 @@ SPACECOUNT=80
 SLEEPTIME=0.02
 SPACES="   "
 
-pid=$( pgrep -if --oldest "/scripts/running_duck" )
-if [ $pid != $$ ]; 
+pid=$( pgrep -if --oldest "/scripts/running_duck" -P $PPID )
+if [ $pid != $$ ] ; 
 then
     state=$( ps -o s= -p $pid )
     if [ $state = "T" ];
