@@ -10,6 +10,9 @@ highlight LineNr ctermfg=grey ctermbg=234
 set relativenumber
 set nu rnu
 
+set wildmenu
+set mouse=a
+
 set encoding=utf-8
 set autochdir
 set splitbelow
@@ -64,6 +67,9 @@ vnoremap P "+P
 nnoremap <C-p> p
 vnoremap <C-p> p
 
+nnoremap <silent> <C-s> :Snippets<CR>
+nnoremap <silent> <C-t> :Tags<CR>
+
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
@@ -74,6 +80,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+
 Plug 'godlygeek/tabular'
 Plug 'autozimu/LanguageClient-neovim', {
    \ 'branch': 'next',
@@ -82,6 +89,13 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'SirVer/ultisnips'
+Plug 'lukschwalb/vim-snippets'
+
+Plug 'tomtom/tcomment_vim'
+
+Plug 'sbdchd/neoformat'
+Plug 'plasticboy/vim-markdown/'
 
 if has('nvim')
    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -89,7 +103,9 @@ endif
 
 
 call plug#end()
-   
+  
+set completefunc=emoji#complete
+
 let g:lightline = {
        \ 'colorscheme': 'seoul256',
        \ 'active': {
@@ -98,6 +114,11 @@ let g:lightline = {
        \   'duck': '🦆'
        \ },
    \ }
+
+let g:UltiSnipsExpandTrigger="<F2>"
+let g:UltiSnipsJumpForwardTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+let g:deoplete#auto_complete="<C-u>"
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
@@ -112,10 +133,6 @@ let g:LanguageClient_serverCommands = {
    \ 'vhdl': ['vhdl-tool', 'lsp'],
    \ 'sh': ['bash-language-server', 'start']
    \ }
-
-
-
-autocmd FileType vhdl setlocal omnifunc=lsp#complete
 
 
 

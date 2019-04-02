@@ -9,6 +9,8 @@ new_window 1pixel
 gaps inner 3 
 gaps outer 1
 
+font pango:Monospace 10 
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -46,6 +48,9 @@ bindsym $mod+b exec --no-startup-id toggle_keymap
 # %%hotkey: Launch networkmanager%%
 bindsym $mod+Shift+n exec networkmanager_dmenu
 
+# %%hotkey: Open dictionary%%
+bindsym $mod+Shift+i exec leo_search
+
 # %%hotkey: Show this hotkey information%%
 bindsym $mod+i exec hotkeys i3
 
@@ -64,7 +69,7 @@ bindsym XF86MonBrightnessDown  exec --no-startup-id xbacklight -dec 10
 bindsym XF86MonBrightnessUp    exec --no-startup-id xbacklight -inc 10
 
 bindsym XF86ScreenSaver        exec --no-startup-id exec i3lock-fancy
-bindsym XF86Sleep              exec --no-startup-id exec i3lock-fancy & systemctl suspend
+bindsym XF86Sleep              exec --no-startup-id exec i3lock-fancy && systemctl suspend
 
 
 # change focus

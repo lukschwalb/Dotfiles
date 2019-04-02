@@ -14,4 +14,9 @@ xrandr --output HDMI3 --off
 xrandr --output VGA1 --off
 xrandr --output HDMI3 --auto --pos 0x0 --rotate normal 
 xrandr --output VGA1 --primary --auto --pos 1920x0 --rotate normal
-i3-msg restart
+
+$HOME/.config/polybar/launch.sh
+feh --bg-scale --randomize --no-fehbg ~/.wallpapers/*
+
+nmcli device connect enp0s25
+nmcli device disconnect wlp3s0
