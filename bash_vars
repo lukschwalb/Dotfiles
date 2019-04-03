@@ -4,7 +4,7 @@ export PATH=$PATH:$REPOSITORY_DIRECTORY/Dotfiles/scripts
 # lower case for convenience
 export vimrc=$REPOSITORY_DIRECTORY/Dotfiles/vimrc
 export i3=$REPOSITORY_DIRECTORY/Dotfiles/config/i3/config
-export TERMINAL='st'
+export TERMINAL='termite'
 export SSH_AUTH_SOCK
 
 
