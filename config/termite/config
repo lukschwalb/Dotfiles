@@ -4,7 +4,9 @@
 #bold_is_bright = true
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 9
+font = Material Icons
+font = Font Awesome
+font = Monospace 11
 #font = Source Code Pro medium 10
 #fullscreen = true
 #icon_name = terminal
