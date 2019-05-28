@@ -11,6 +11,6 @@ input=`xclip -o`
 while [ "$?" -eq "0" ]; do
   # write search to history
   [[ ! -z "$input" ]] && `echo $input >> $HISTORY`
-  input=`$RUBY $SCRIPT "$input" | rofi -dmenu -l 30 -p "Leo Dict: "`
+  input=`$RUBY $SCRIPT "$input" | rofi -dmenu -l 50 -width 600 -p "Leo Dict: "`
 done
 

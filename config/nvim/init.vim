@@ -91,11 +91,17 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'SirVer/ultisnips'
 Plug 'lukschwalb/vim-snippets'
+Plug 'sbdchd/neoformat'
 
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+
+Plug 'Yggdroot/indentLine'
+
+" Switch between source and header files
+Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'tomtom/tcomment_vim'
 
-Plug 'sbdchd/neoformat'
-Plug 'plasticboy/vim-markdown/'
+"Plug 'plasticboy/vim-markdown/'
 
 if has('nvim')
    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -124,6 +130,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
 let g:deoplete#auto_complete_delay = 500
 " call deoplete#custom#option('auto_complete', v:false)
+"
+map <F3> :call CurtineIncSw()<CR>
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>

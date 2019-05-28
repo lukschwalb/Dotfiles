@@ -6,7 +6,7 @@
 #dynamic_title = true
 font = Material Icons
 font = Font Awesome
-font = Monospace 11
+font = Monospace 10
 #font = Source Code Pro medium 10
 #fullscreen = true
 #icon_name = terminal

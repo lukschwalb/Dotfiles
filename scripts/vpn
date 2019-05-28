@@ -12,9 +12,10 @@
 
 CONFIG_PATH=$REPOSITORY_DIRECTORY/cryptostorm_client_configuration_files/ecc
 VPNS=$( find $CONFIG_PATH/*.ovpn -printf "%f|")
-VPN=$(echo "$VPNS" | rofi -dmenu -sep "|")
+VPN=$(echo "$VPNS" | rofi -dmenu -sep "|" -i)
 
 if [ ! -z $VPN ];
 then
-    eval "$TERMINAL -e openvpn $CONFIG_PATH/$VPN"
+    echo "$CS_HASH" | clipster -c
+    eval "$TERMINAL -e \"sudo openvpn $CONFIG_PATH/$VPN\""
 fi

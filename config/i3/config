@@ -15,7 +15,7 @@ font pango:Monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec $term -e fish
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+q kill
@@ -26,6 +26,12 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # %%hotkey: Shows available windows%%
 bindsym $mod+w exec rofi -show window
+
+# %%hotkey: Connect to a vpn %%
+bindsym $mod+v exec vpn
+
+# %%hotkey: Open todo list %%
+bindsym $mod+y exec todo
 
 # %%hotkey: Open power options%%
 bindsym $mod+p exec sysmenu
@@ -62,14 +68,15 @@ bindsym $mod+Shift+period exec --no-startup-id scrot -e 'mv $f ~/Cloud/files/scr
 
 
 bindsym XF86AudioMute          exec --no-startup-id amixer set Master toggle
-bindsym XF86AudioLowerVolume   exec --no-startup-id amixer sset Master 10%-
-bindsym XF86AudioRaiseVolume   exec --no-startup-id amixer sset Master 10%+
+bindsym XF86AudioLowerVolume   exec --no-startup-id amixer sset Master 3%-
+bindsym XF86AudioRaiseVolume   exec --no-startup-id amixer sset Master 3%+
 
 bindsym XF86MonBrightnessDown  exec --no-startup-id xbacklight -dec 10
 bindsym XF86MonBrightnessUp    exec --no-startup-id xbacklight -inc 10
 
 bindsym XF86ScreenSaver        exec --no-startup-id exec i3lock-fancy
 bindsym XF86Sleep              exec --no-startup-id exec i3lock-fancy && systemctl suspend
+bindsym XF86Launch1            exec --no-startup-id toggle_keymap
 
 
 # change focus
@@ -105,8 +112,8 @@ bindsym $mod+Shift+minus move scratchpad
 # %%hotkey: Show first window in scratchpad%%
 bindsym $mod+minus scratchpad show
 
-# %%hotkey: Show whatsie in scratchpad%%
-bindsym $mod+c [class="Whatsie"] scratchpad show
+# %%hotkey: Show WhatsApp in scratchpad%%
+bindsym $mod+c [class="whats-app-nativefier.*"] scratchpad show
 
 # %%hotkey: Toggle split direction%%
 bindsym $mod+m split toggle
@@ -198,6 +205,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 assign [class="Firefox"] 2
+assign [title="/usr/bin/parsecd"] 8
+for_window [class="whats-app-nativefier.*"] move window to scratchpad, resize set 960 720, position center
+
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale --randomize --no-fehbg ~/.wallpapers/*
@@ -209,5 +219,6 @@ exec --no-startup-id xcompmgr
 exec --no-startup-id devilspie -a
 exec --no-startup-id nextcloud
 exec --no-startup-id clipster -d
+exec --no-startup-id dunst
 
 

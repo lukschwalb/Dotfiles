@@ -4,7 +4,6 @@
 !.gitignore
 !i3/
 !nvim/
-!fish/
 !fontconfig/
 !htop/
 !rofi/

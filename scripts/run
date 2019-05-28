@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cmd=$(rofi -dmenu -l 20 -height 30 -width 600 -p "Command line: ")
+if [ -n $cmd ]; then
+    eval "o $cmd"
+fi
+
