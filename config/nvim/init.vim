@@ -38,7 +38,6 @@ set expandtab
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 
-map <C-R> :FZF<CR>
 
 " Map split windows movement
 nnoremap <C-J> <C-W><C-J>
@@ -69,12 +68,19 @@ vnoremap <C-p> p
 
 nnoremap <silent> <C-s> :Snippets<CR>
 nnoremap <silent> <C-t> :Tags<CR>
+nnoremap <silent> <C-b> :BLines<CR>
+map <C-f> :GFiles<CR>
+map <C-r> :Files<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
+
+"Remove trailing whitespaces
+autocmd BufWritePre * %s/\s\+$//e
 
 call plug#begin('~/.vim/plugged')
 
@@ -101,6 +107,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'tomtom/tcomment_vim'
 
+Plug 'scrooloose/nerdtree'
+
 "Plug 'plasticboy/vim-markdown/'
 
 if has('nvim')
@@ -109,7 +117,7 @@ endif
 
 
 call plug#end()
-  
+
 set completefunc=emoji#complete
 
 let g:lightline = {
@@ -135,12 +143,15 @@ map <F3> :call CurtineIncSw()<CR>
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"\ 'cpp': ['clangd', '-all-scopes-completion','-completion-style=detailed', '-function-arg-placeholders'],
 let g:LanguageClient_serverCommands = {
    \ 'c': ['clangd'],
-   \ 'cpp': ['clangd'],
+   \ 'cpp': ['clangd', '-all-scopes-completion','-completion-style=detailed', '-function-arg-placeholders'],
    \ 'vhdl': ['vhdl-tool', 'lsp'],
    \ 'sh': ['bash-language-server', 'start']
    \ }
 
 
+
+let g:LanguageClient_serverStderr = '/tmp/clangd.stderr'
 

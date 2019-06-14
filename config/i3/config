@@ -1,15 +1,15 @@
 # i3config
-set $term --no-startup-id $TERMINAL 
+set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $screenshot_path echo "$HOME/Cloud/files/screenshots"
 
 # Add gaps between windows
 for_window [class="^.*"] border pixel 3
 new_window 1pixel
-gaps inner 3 
+gaps inner 3
 gaps outer 1
 
-font pango:Monospace 10 
+font pango:Monospace 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -112,8 +112,8 @@ bindsym $mod+Shift+minus move scratchpad
 # %%hotkey: Show first window in scratchpad%%
 bindsym $mod+minus scratchpad show
 
-# %%hotkey: Show WhatsApp in scratchpad%%
-bindsym $mod+c [class="whats-app-nativefier.*"] scratchpad show
+# %%hotkey: Open calculator%%
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # %%hotkey: Toggle split direction%%
 bindsym $mod+m split toggle
@@ -211,7 +211,7 @@ for_window [class="whats-app-nativefier.*"] move window to scratchpad, resize se
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale --randomize --no-fehbg ~/.wallpapers/*
-exec_always setxkbmap -option caps:swapescape
+exec_always setxkbmap -option caps:escape
 
 exec amixer sset Master 0%
 exec --no-startup-id dockd --daemon

@@ -2,7 +2,7 @@
 
 #########################################################
 #Script Name	: vpn
-#Description	: Opens a rofi-dmenu list of available 
+#Description	: Opens a rofi-dmenu list of available
 #                 openvpn configurations.
 #                 Executes the configuration after selection.
 #Args           : None
@@ -16,6 +16,6 @@ VPN=$(echo "$VPNS" | rofi -dmenu -sep "|" -i)
 
 if [ ! -z $VPN ];
 then
-    echo "$CS_HASH" | clipster -c
+    echo -n "$CS_HASH" | clipster -c
     eval "$TERMINAL -e \"sudo openvpn $CONFIG_PATH/$VPN\""
 fi
